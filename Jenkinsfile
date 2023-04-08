@@ -4,6 +4,7 @@ pipeline {
     tools {
        maven 'Maven'
     }
+    Stages {
      stage ('Check-Git-Secrets') {
       steps {
         sh 'rm trufflehog || true'
@@ -11,8 +12,7 @@ pipeline {
         sh 'cat trufflehog'
       }
     }
-
-        stage ('Build') {
+     stage ('Build') {
             steps {
                 sh 'mvn clean package'
             }
